@@ -22,14 +22,14 @@ def get_filters():
     while True:
         city = input('Would you like to see data for Chicago, New York, or Washington?\n').lower()
         if city not in ['chicago', 'new york', 'washington']:
-            print('Please type a correct city.')
+            print('Please pick one of the choices or check the spelling.')
         else:
             break
 
     while True:
         time_filter = input('Would you like to filter the data by month, day, or not at all? type \'none\' for no filter.\n').lower()
         if time_filter not in ['month', 'day', 'none']:
-            print('Please pick one of the choices.')
+            print('Please pick one of the choices or check the spelling')
         elif time_filter == 'none':
             month = 'all'
             day = 'all'
@@ -39,7 +39,7 @@ def get_filters():
             while True:
                 month = input('Which month - January, February, March, April, May, or June?\n').lower()
                 if month not in ['january', 'february', 'march', 'april', 'may', 'june']:
-                    print('Please type a correct month.')
+                    print('Please pick one of the choices or check the spelling.')
                 else:
                     break
             day = 'all'
@@ -49,7 +49,7 @@ def get_filters():
             while True:
                 day = input('Which day - Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday?\n').lower()
                 if day not in ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']:
-                    print('Please type a correct day.')
+                    print('Please pick one of the choices or check the spelling.')
                 else:
                     break
             month = 'all'
