@@ -215,7 +215,7 @@ def raw_data(df):
 
     i = 0
     while True:
-        restart = input('\nWould you like to see 5 lines of raw data? Enter yes or no.\n')
+        restart = input('\nWould you like to see 5 lines of raw data? Enter yes to continue.\n')
         if restart.lower() != 'yes':
             print('-'*40)
             break
@@ -235,7 +235,7 @@ def main():
         user_stats(df)
         raw_data(df)
 
-        restart = input('\nWould you like to restart? Enter yes or no.\n')
+        restart = input('\nWould you like to restart? Enter yes to continue.\n')
         if restart.lower() != 'yes':
             break
 
