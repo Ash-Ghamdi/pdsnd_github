@@ -22,14 +22,14 @@ def get_filters():
     while True:
         city = input('Would you like to see data for Chicago, New York, or Washington?\n').lower()
         if city not in ['chicago', 'new york', 'washington']:
-            print('Please type a correct city.')
+            print('Please pick one of the choices or check the spelling.')
         else:
             break
 
     while True:
         time_filter = input('Would you like to filter the data by month, day, or not at all? type \'none\' for no filter.\n').lower()
         if time_filter not in ['month', 'day', 'none']:
-            print('Please pick one of the choices.')
+            print('Please pick one of the choices or check the spelling')
         elif time_filter == 'none':
             # filter for all months and days
             month = 'all'
@@ -40,7 +40,7 @@ def get_filters():
             while True:
                 month = input('Which month - January, February, March, April, May, or June?\n').lower()
                 if month not in ['january', 'february', 'march', 'april', 'may', 'june']:
-                    print('Please type a correct month.')
+                    print('Please pick one of the choices or check the spelling.')
                 else:
                     break
             # filter for all days in selected month
@@ -51,7 +51,7 @@ def get_filters():
             while True:
                 day = input('Which day - Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday?\n').lower()
                 if day not in ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']:
-                    print('Please type a correct day.')
+                    print('Please pick one of the choices or check the spelling.')
                 else:
                     break
             # filter for all months for selected day
@@ -197,12 +197,12 @@ def user_stats(df):
     # Display earliest, most recent, and most common year of birth
     if 'Birth Year' in df.columns:
         print('')
-        earliest_yob = df['Birth Year'].min()
-        most_recent_yob = df['Birth Year'].max()
-        most_common_yob = df['Birth Year'].mode()[0]
-        print('Earliest Year of Birth:', int(earliest_yob))
-        print('Most Recent Year of Birth:', int(most_recent_yob))
-        print('Most Common Year of Birth:', int(most_common_yob))
+        earliest_birth = df['Birth Year'].min()
+        most_recent_birth = df['Birth Year'].max()
+        most_common_birth = df['Birth Year'].mode()[0]
+        print('Earliest Year of Birth:', int(earliest_birth))
+        print('Most Recent Year of Birth:', int(most_recent_birth))
+        print('Most Common Year of Birth:', int(most_common_birth))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -218,7 +218,7 @@ def raw_data(df):
 
     i = 0
     while True:
-        restart = input('\nWould you like to see 5 lines of raw data? Enter yes or no.\n')
+        restart = input('\nWould you like to see 5 lines of raw data? Enter yes to continue.\n')
         if restart.lower() != 'yes':
             print('-'*40)
             break
@@ -238,7 +238,7 @@ def main():
         user_stats(df)
         raw_data(df)
 
-        restart = input('\nWould you like to restart? Enter yes or no.\n')
+        restart = input('\nWould you like to restart? Enter yes to continue.\n')
         if restart.lower() != 'yes':
             break
 
